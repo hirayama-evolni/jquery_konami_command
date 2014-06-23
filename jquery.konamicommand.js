@@ -38,7 +38,11 @@
 					current = 0;
 
 					$.each(callbacks, function(){
-						this.call(this);
+						(function(dis){
+							window.setTimeout(function(){
+								dis.call(dis);
+							}, 0);
+						})(this);
 					});
 				}
 			} else {
